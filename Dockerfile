@@ -1,3 +1,8 @@
+FROM pointslope/datomic-pro-starter:0.9.5544
+
+MAINTAINER Marian Goenninger "marian.goenninger@goenninger.net"
+CMD ["config/transactor.properties"]
+
 FROM clojure
 
 RUN mkdir -p /usr/src/backend

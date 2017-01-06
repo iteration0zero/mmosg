@@ -1,0 +1,259 @@
+[{:db/id #db/id[:db.part/db]
+  :db/ident :world/dimension-x
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "The x dimension of the world"
+  :db.install/_attribute :db.part/db}
+
+  {:db/id #db/id[:db.part/db]
+    :db/ident :world/dimension-y
+    :db/valueType :db.type/long
+    :db/cardinality :db.cardinality/one
+    :db/doc "The y dimension of the world"
+    :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+      :db/ident :world/name
+      :db/valueType :db.type/string
+      :db/cardinality :db.cardinality/one
+      :db/doc "The name of the world"
+      :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :attack/tick
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "Attack tick"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :tick/attack
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The attack this tick is participating in"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :tick/unit-states
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many
+  :db/doc "The states of the units participating in the respective attack"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :unit-state/unit
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The unit this state belongs to"
+  :db.install/_attribute :db.part/db}
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :tick/building-states
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many
+   :db/doc "The states of the buildings participating in the respective attack"
+   :db.install/_attribute :db.part/db}
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :building-state/building
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/one
+   :db/doc "The building this state belongs to"
+   :db.install/_attribute :db.part/db}
+
+   {:db/id #db/id[:db.part/db]
+    :db/ident :tick/unit-states
+    :db/valueType :db.type/ref
+    :db/cardinality :db.cardinality/many
+    :db/doc "The states of the units participating in the respective attack"
+    :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+     :db/ident :building/base
+     :db/valueType :db.type/ref
+     :db/cardinality :db.cardinality/one
+     :db/doc "The base this building is in"
+     :db.install/_attribute :db.part/db}
+
+     {:db/id #db/id[:db.part/db]
+      :db/ident :building/x1
+      :db/valueType :db.type/int
+      :db/cardinality :db.cardinality/one
+      :db/doc "The x coordinate of the first corner point of the building"
+      :db.install/_attribute :db.part/db}
+
+      {:db/id #db/id[:db.part/db]
+       :db/ident :building/y1
+       :db/valueType :db.type/int
+       :db/cardinality :db.cardinality/one
+       :db/doc "The y coordinate of the first corner point of the building"
+       :db.install/_attribute :db.part/db}
+
+       {:db/id #db/id[:db.part/db]
+        :db/ident :building/x2
+        :db/valueType :db.type/int
+        :db/cardinality :db.cardinality/one
+        :db/doc "The x coordinate of the second corner point of the building"
+        :db.install/_attribute :db.part/db}
+
+        {:db/id #db/id[:db.part/db]
+         :db/ident :building/y2
+         :db/valueType :db.type/int
+         :db/cardinality :db.cardinality/one
+         :db/doc "The y coordinate of the second corner point of the building"
+         :db.install/_attribute :db.part/db}
+
+         {:db/id #db/id[:db.part/db]
+          :db/ident :building/type
+          :db/valueType :db.type/ref
+          :db/cardinality :db.cardinality/one
+          :db/doc "The type of this building"
+          :db.install/_attribute :db.part/db}
+
+          {:db/id #db/id[:db.part/db]
+           :db/ident :base/user
+           :db/valueType :db.type/ref
+           :db/cardinality :db.cardinality/one
+           :db/doc "The user this base belongs to"
+           :db.install/_attribute :db.part/db}
+
+           {:db/id #db/id[:db.part/db]
+            :db/ident :base/x
+            :db/valueType :db.type/int
+            :db/cardinality :db.cardinality/one
+            :db/doc "The x coordinate of the base on the map"
+            :db.install/_attribute :db.part/db}
+
+            {:db/id #db/id[:db.part/db]
+             :db/ident :base/y
+             :db/valueType :db.type/int
+             :db/cardinality :db.cardinality/one
+             :db/doc "The y coordinate of the base on the map"
+             :db.install/_attribute :db.part/db}
+
+             {:db/id #db/id[:db.part/db]
+              :db/ident :user/name
+              :db/valueType :db.type/string
+              :db/cardinality :db.cardinality/one
+              :db/doc "user name"
+              :db.install/_attribute :db.part/db}
+
+              {:db/id #db/id[:db.part/db]
+               :db/ident :user/password
+               :db/valueType :db.type/string
+               :db/cardinality :db.cardinality/one
+               :db/doc "user password"
+               :db.install/_attribute :db.part/db}
+
+               {:db/id #db/id[:db.part/db]
+                :db/ident :user/email
+                :db/valueType :db.type/string
+                :db/cardinality :db.cardinality/one
+                :db/doc "user email address"
+                :db.install/_attribute :db.part/db}
+
+   {:db/id #db/id[:db.part/db]
+    :db/ident :building-type/name
+    :db/valueType :db.type/string
+    :db/cardinality :db.cardinality/one
+    :db/doc "The name of the building type"
+    :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+     :db/ident :harvest-type/name
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/many
+     :db/doc "The name of the harvest type"
+     :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+     :db/ident :harvest-type/produces
+     :db/valueType :db.type/ref
+     :db/cardinality :db.cardinality/many
+     :db/doc "The resources this harvest-type can produce"
+     :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+     :db/ident :harvest-type/produces-amounts
+     :db/valueType :db.type/float
+     :db/cardinality :db.cardinality/many
+     :db/doc "The amounts of resources this harvest-type can produce"
+     :db.install/_attribute :db.part/db}
+
+     {:db/id #db/id[:db.part/db]
+      :db/ident :harvest-type/takes
+      :db/valueType :db.type/ref
+      :db/cardinality :db.cardinality/many
+      :db/doc "The resources this harvest-type takes"
+      :db.install/_attribute :db.part/db}
+
+      {:db/id #db/id[:db.part/db]
+       :db/ident :building-type/takes-amounts
+       :db/valueType :db.type/ref
+       :db/cardinality :db.cardinality/many
+       :db/doc "The amounts of resources this harvest type takes"
+       :db.install/_attribute :db.part/db}
+
+       {:db/id #db/id[:db.part/db]
+        :db/ident :building-type/harvest-types
+        :db/valueType :db.type/ref
+        :db/cardinality :db.cardinality/many
+        :db/doc "The harvest-types this building fullfills"
+        :db.install/_attribute :db.part/db}
+
+        {:db/id #db/id[:db.part/db]
+         :db/ident :building-type/harvest-scale
+         :db/valueType :db.type/float
+         :db/cardinality :db.cardinality/one
+         :db/doc "The factor by which the harvest amount gets altered depending on the scale of the building"
+         :db.install/_attribute :db.part/db}
+
+         {:db/id #db/id[:db.part/db]
+          :db/ident :building-type/costs
+          :db/valueType :db.type/ref
+          :db/cardinality :db.cardinality/many
+          :db/doc "The resources this building has as building cost"
+          :db.install/_attribute :db.part/db}
+
+          {:db/id #db/id[:db.part/db]
+           :db/ident :building-type/costs-amounts
+           :db/valueType :db.type/float
+           :db/cardinality :db.cardinality/many
+           :db/doc "The amounts of resources this building costs"
+           :db.install/_attribute :db.part/db}
+
+           {:db/id #db/id[:db.part/db]
+            :db/ident :building-type/costs-scales
+            :db/valueType :db.type/float
+            :db/cardinality :db.cardinality/many
+            :db/doc "The factor by which the cost amount of the resources gets altered depending on the scale of the building"
+            :db.install/_attribute :db.part/db}
+
+            {:db/id #db/id[:db.part/db]
+             :db/ident :building-type/stores
+             :db/valueType :db.type/ref
+             :db/cardinality :db.cardinality/many
+             :db/doc "The resources this building can store"
+             :db.install/_attribute :db.part/db}
+
+             {:db/id #db/id[:db.part/db]
+              :db/ident :building-type/stores-amounts
+              :db/valueType :db.type/float
+              :db/cardinality :db.cardinality/many
+              :db/doc "The amounts of resources this building can store"
+              :db.install/_attribute :db.part/db}
+
+              {:db/id #db/id[:db.part/db]
+               :db/ident :building-type/min-size
+               :db/valueType :db.type/int
+               :db/cardinality :db.cardinality/one
+               :db/doc "The minimum amount of tiles this building has to span over"
+               :db.install/_attribute :db.part/db}
+
+               {:db/id #db/id[:db.part/db]
+                :db/ident :building-type/max-size
+                :db/valueType :db.type/int
+                :db/cardinality :db.cardinality/one
+                :db/doc "The maximum amount of tiles this building has to span over"
+                :db.install/_attribute :db.part/db}
+    ]

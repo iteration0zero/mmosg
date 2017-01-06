@@ -2,7 +2,7 @@
   (:require [datomic.api :as d]))
 
 (defn startup-in-memory-db []
-  (let [uri "datomic:mem://mmosg-db"]
+  (let [uri (load-file "resources/datomic/db_uri.edn")]
     (d/delete-database uri)
     (d/create-database uri)
     (let [conn (d/connect uri)

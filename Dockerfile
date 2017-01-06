@@ -13,6 +13,6 @@ FROM python
 
 WORKDIR /usr/src/frontend/server
 COPY ./python/http_server/ /usr/src/frontend/server
-COPY ./frontend/resources/public /usr/frontend/server
+COPY ./frontend/resources/public /usr/src/frontend/server
 CMD ["python", "/usr/src/frontend/server/rc.py"]
 EXPOSE 8000

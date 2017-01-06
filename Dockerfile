@@ -22,6 +22,6 @@ FROM python
 
 WORKDIR /usr/http
 COPY ./python/http_server/ /usr/http/
-COPY ./frontend/resources/public /usr/http/
+COPY /usr/src/frontend/resources/public /usr/http/
 CMD ["python", "/usr/http/rc.py"]
 EXPOSE 8000

@@ -20,8 +20,7 @@ CMD ["lein", "cljsbuild", "once", "min"]
 
 FROM python
 
-WORKDIR /usr/http
-COPY ./python/http_server/ /usr/http/
-COPY /usr/src/frontend/resources/public /usr/http/
-CMD ["python", "/usr/http/rc.py"]
+WORKDIR /usr/frontend/resources/public
+COPY ./python/http_server/ /usr/frontend/resources/public
+CMD ["python", "/usr/frontend/resources/public/rc.py"]
 EXPOSE 8000

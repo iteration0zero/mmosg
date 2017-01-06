@@ -8,7 +8,6 @@ COPY ./backend /usr/src/backend
 RUN mv "$(lein uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" backend.jar
 CMD ["java", "-jar", "backend.jar"]
 
-
-FROM httpd:2.4
-COPY ./frontend/resources/public/ /usr/local/apache2/htdocs/
-EXPOSE 80
+FROM python:2-onbuild
+CMD [ "python", "./python/http_server/rc.py" ]
+EXPOSE 8000

@@ -9,18 +9,10 @@ COPY ./backend /usr/src/backend
 RUN mv "$(lein uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" backend.jar
 CMD ["java", "-jar", "backend.jar"]
 
-RUN mkdir -p /usr/src/frontend
-WORKDIR /usr/src/frontend
-COPY ./frontend/project.clj /usr/src/frontend
-RUN lein deps
-COPY ./frontend /usr/src/frontend
-
-RUN lein clean
-CMD ["lein", "cljsbuild", "once", "min"]
-
 FROM python
 
-WORKDIR /usr/src/frontend/resources/public
-COPY ./python/http_server/ /usr/src/frontend/resources/public
-CMD ["python", "/usr/src/frontend/resources/public/rc.py"]
+WORKDIR /usr/src/frontend/server
+COPY ./python/http_server/ /usr/src/frontend/server
+COPY ./frontend/resources/public /usr/frontend/server
+CMD ["python", "/usr/src/frontend/server/rc.py"]
 EXPOSE 8000

@@ -1,14 +1,15 @@
-import SimpleHTTPServer
-import SocketServer
+import http.server
+import socketserver
+
 
 PORT = 8000
 
-Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+Handler = http.server.SimpleHTTPRequestHandler
 Handler.extensions_map.update({
     '.webapp': 'application/x-web-app-manifest+json',
 });
 
-httpd = SocketServer.TCPServer(("", PORT), Handler)
+httpd = socketserver.TCPServer(("", PORT), Handler)
 
-print "Serving at port", PORT
+print(("Serving at port", PORT))
 httpd.serve_forever()

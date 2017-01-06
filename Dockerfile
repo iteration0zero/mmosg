@@ -8,6 +8,10 @@ COPY ./backend /usr/src/backend
 RUN mv "$(lein uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" backend.jar
 CMD ["java", "-jar", "backend.jar"]
 
-FROM python:2-onbuild
-CMD [ "python", "./python/http_server/rc.py" ]
+FROM python
+RUN mkdir -p /usr/src/frontend
+WORKDIR /usr/src/frontend
+COPY ./python/http_server/ /usr/src/frontend/
+COPY ./frontend/resources/public/ /usr/src/frontend/
+CMD [ "python", "/usr/src/frontend/rc.py" ]
 EXPOSE 8000

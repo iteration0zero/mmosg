@@ -11,3 +11,4 @@ CMD ["java", "-jar", "backend.jar"]
 
 FROM httpd:2.4
 COPY ./frontend/resources/public /usr/local/apache2/htdocs/
+EXPOSE 80

@@ -1,4 +1,5 @@
 FROM clojure
+
 RUN mkdir -p /usr/src/backend
 WORKDIR /usr/src/backend
 COPY ./backend/project.clj /usr/src/backend/
@@ -8,10 +9,19 @@ COPY ./backend /usr/src/backend
 RUN mv "$(lein uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" backend.jar
 CMD ["java", "-jar", "backend.jar"]
 
-FROM python
 RUN mkdir -p /usr/src/frontend
 WORKDIR /usr/src/frontend
-COPY ./python/http_server/ /usr/src/frontend/
-COPY ./frontend/resources/public/ /usr/src/frontend/
-CMD [ "python", "/usr/src/frontend/rc.py" ]
+COPY ./frontend/project.clj /usr/src/frontend
+RUN lein deps
+COPY ./frontend /usr/src/frontend
+
+RUN lein clean
+CMD ["lein", "cljsbuild", "once", "min"]
+
+FROM python
+
+WORKDIR /usr/http
+COPY ./python/http_server/ /usr/http/
+COPY ./frontend/resources/public /usr/http/
+CMD ["python", "/usr/http/rc.py"]
 EXPOSE 8000

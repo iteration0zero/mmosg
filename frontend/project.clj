@@ -37,32 +37,31 @@
    {:dependencies [[binaryage/devtools "0.8.2"]
                    [figwheel-sidecar "0.5.8"]]
 
-    :plugins      [[lein-figwheel "0.5.7"]]
-    }}
+    :plugins      [[lein-figwheel "0.5.8"]]}
+   :min
+   {:dependencies []
+    :plugins []}}
 
   :cljsbuild
-  {:builds
-   [{:id           "dev"
-     :source-paths ["src/cljs"]
-     :figwheel     {:on-jsload "frontend.core/mount-root"}
-     :compiler     {:main                 frontend.core
-                    :output-to            "resources/public/js/compiled/app.js"
-                    :output-dir           "resources/public/js/compiled/out"
-                    :asset-path           "js/compiled/out"
-                    :source-map-timestamp true
-                    :preloads             [devtools.preload]
-                    :external-config      {:devtools/config {:features-to-install :all}}
-                    }}
+  {:builds {
+       :dev {
+             :source-paths ["src/cljs"]
+             :figwheel     {:on-jsload "frontend.core/mount-root"}
+             :compiler     {:main                 frontend.core
+                            :output-to            "resources/public/js/compiled/app.js"
+                            :output-dir           "resources/public/js/compiled/out"
+                            :asset-path           "js/compiled/out"
+                            :source-map-timestamp true
+                            :preloads             [devtools.preload]
+                            :external-config      {:devtools/config {:features-to-install :all}}
+                            }}
 
-    {:id           "min"
-     :source-paths ["src/cljs"]
-     :compiler     {:main            frontend.core
-                    :output-to       "resources/public/js/compiled/app.js"
-                    :optimizations   :advanced
-                    :closure-defines {goog.DEBUG false}
-                    :pretty-print    false}}
-
-
-    ]}
+        :min {
+              :source-paths ["src/cljs"]
+              :compiler     {:main            frontend.core
+                            :output-to       "resources/public/js/compiled/app.js"
+                            :optimizations   :advanced
+                            :closure-defines {goog.DEBUG false}
+                            :pretty-print    false}}}}
 
   )

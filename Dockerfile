@@ -16,6 +16,7 @@ CMD ["java", "-jar", "backend.jar"]
 
 FROM python
 
+RUN mkdir -p /usr/src/frontend/server
 WORKDIR /usr/src/frontend/server
 COPY ./python/http_server/ /usr/src/frontend/server
 COPY ./frontend/resources/public /usr/src/frontend/server

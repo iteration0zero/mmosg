@@ -19,6 +19,6 @@ FROM python
 RUN mkdir -p /usr/src/frontend/server
 WORKDIR /usr/src/frontend/server
 COPY ./python/http_server/ /usr/src/frontend/server
-COPY ./frontend/resources/public/ /usr/src/frontend/server
+COPY ./frontend/resources/public /usr/src/frontend/server
 CMD ["python", "/usr/src/frontend/server/rc.py"]
 EXPOSE 8000
